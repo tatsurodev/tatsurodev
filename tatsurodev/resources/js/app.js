@@ -1,4 +1,5 @@
 require("./bootstrap")
+require('./home')
 
 import fontawesome from "@fortawesome/fontawesome"
 import regular from "@fortawesome/fontawesome-free-solid"
