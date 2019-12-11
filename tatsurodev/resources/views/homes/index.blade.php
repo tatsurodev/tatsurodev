@@ -12,172 +12,28 @@
 @slot('body')
 <div class="row">
     <div class="col-md-6">
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">HTML5</h4>
-                <span class="p-2 small text-muted"> </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-primary" style="width:80%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">CSS3</h4>
-                <span class="p-2 small text-muted">
-                    スタイリングをBootstrapで済ませてしまうことが多く、苦手
-                </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-warning" style="width:40%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">Bootstrap4</h4>
-                <span class="p-2 small text-muted">
-                    Laravelのviewでもよく使用
-                </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-success" style="width:60%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">MySQL</h4>
-                <span class="p-2 small text-muted"> </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-warning" style="width:40%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">PostgreSQL</h4>
-                <span class="p-2 small text-muted">
-                    SQL学習のため、<a href="https://oss-db.jp/outline/silver" target="_blank">OSS-DB Silver</a>取得
-                </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-warning" style="width:40%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">Javascript</h4>
-                <span class="p-2 small text-muted"> </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-success" style="width:60%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">Vue.js</h4>
-                <span class="p-2 small text-muted">
-                    Laravelのフロントエンド開発に使用中
-                </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-success" style="width:60%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">Nuxt.js</h4>
-                <span class="p-2 small text-muted"> </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-warning" style="width:40%"></div>
-            </div>
-        </div>
+        @skillBar(['skill' => 'HTML5', 'color' => 'primary', 'level' => 80])
+        @endskillBar
+        @skillBar(['skill' => 'CSS3', 'color' => 'warning', 'level' => 40])
+        スタイリングをBootstrapで済ませてしまうことが多く、苦手
+        @endskillBar
+        @skillBar(['skill' => 'Bootstrap4', 'color' => 'success', 'level' => 60])
+        Laravelのviewでもよく使用
+        @endskillBar
+        @skillBar(['skill' => 'MySQL', 'color' => 'warning', 'level' => 40])
+        @endskillBar
     </div>
     <div class="col-md-6">
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">PHP</h4>
-                <span class="p-2 small text-muted">
-                    ウェブ開発にメインで使用している言語です。
-                </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-primary" style="width:80%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">Laravel</h4>
-                <span class="p-2 small text-muted">
-                    初めて学習したウェブフレイムワーク。
-                </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-primary" style="width:80%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">Python</h4>
-                <span class="p-2 small text-muted">
-                    メインで使用しているsqlです。 メインで使用しているsqlです。
-                </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-warning" style="width:40%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">Scrapy</h4>
-                <span class="p-2 small text-muted">
-                    スクレイピングに使用
-                </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-warning" style="width:40%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">Machine Learning</h4>
-                <span class="p-2 small text-muted">
-                    Andrew Ng先生の<a href="https://www.coursera.org/learn/machine-learning" tartget="_blank">機械学習コース</a>を一時休止中
-                </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-danger" style="width:20%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">Git</h4>
-                <span class="p-2 small text-muted"> </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-success" style="width:60%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">Docker</h4>
-                <span class="p-2 small text-muted">
-                    laradockで使用中
-                </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-danger" style="width:20%"></div>
-            </div>
-        </div>
-        <div>
-            <div class="d-flex align-items-center">
-                <h4 class="p-2">ETC</h4>
-                <span class="p-2 small text-muted"> </span>
-            </div>
-            <div class="progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-warning" style="width:40%"></div>
-            </div>
-        </div>
+        @skillBar(['skill' => 'HTML5', 'color' => 'primary', 'level' => 80])
+        @endskillBar
+        @skillBar(['skill' => 'CSS3', 'color' => 'warning', 'level' => 40])
+        スタイリングをBootstrapで済ませてしまうことが多く、苦手
+        @endskillBar
+        @skillBar(['skill' => 'Bootstrap4', 'color' => 'success', 'level' => 60])
+        Laravelのviewでもよく使用
+        @endskillBar
+        @skillBar(['skill' => 'MySQL', 'color' => 'warning', 'level' => 40])
+        @endskillBar
     </div>
 </div>
 @endslot
