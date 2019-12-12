@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\ViewComposers\MenuViewComposer;
+use App\Http\ViewComposers\SkillViewComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -31,6 +32,9 @@ class ComposerServiceProvider extends ServiceProvider
                 'layouts.app',
                 'homes.index',
             ],
+            SkillViewComposer::class => [
+                'homes._portfolio-skill-body',
+            ]
         ]);
     }
 }
