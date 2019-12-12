@@ -76,31 +76,13 @@
                         </div>
                         <div>
                             <div class="d-flex flex-row text-white align-items-stretch text-center">
+                                @foreach($menus as $menu)
                                 @include('homes._portfolio-menu', [
-                                'id' => 'skill',
-                                'color' => 'primary',
-                                'icon' => 'fa-code',
+                                'id' => $menu->name,
+                                'color' => $menu->color,
+                                'icon' => $menu->fontawesome,
                                 ])
-                                @include('homes._portfolio-menu', [
-                                'id' => 'portfolio',
-                                'color' => 'success',
-                                'icon' => 'fa-briefcase',
-                                ])
-                                @include('homes._portfolio-menu', [
-                                'id' => 'book',
-                                'color' => 'warning',
-                                'icon' => 'fa-book',
-                                ])
-                                @include('homes._portfolio-menu', [
-                                'id' => 'udemy',
-                                'color' => 'danger',
-                                'icon' => 'fa-graduation-cap',
-                                ])
-                                @include('homes._portfolio-menu', [
-                                'id' => 'contact',
-                                'color' => 'dark',
-                                'icon' => 'fa-envelope',
-                                ])
+                                @endforeach
                             </div>
                         </div>
                     </div>
