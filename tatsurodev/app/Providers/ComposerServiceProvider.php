@@ -27,7 +27,10 @@ class ComposerServiceProvider extends ServiceProvider
     {
         // view composerを複数登録
         View::composers([
-            MenuViewComposer::class => 'layouts.app',
+            MenuViewComposer::class => [
+                'layouts.app',
+                'homes.index',
+            ],
         ]);
     }
 }

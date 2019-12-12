@@ -6,11 +6,18 @@
         </p>
     </div>
     <div class="card card-body py-5">
-        <h3>{{ $question }}</h3>
-        <p>
-            {{ $answer }}
-        </p>
-        <hr />
+        <!-- QAndAsがない場合undefinedのエラーが出るのでその防止 -->
+        @if(isset($qAndAs))
+        @foreach($qAndAs as $qAndA)
+        <div class="mb-2 text-muted">
+            <h3 class="font-weight-bold">{{ $qAndA->question }}</h3>
+            <p class="ml-2">
+                {{ $qAndA->answer }}
+            </p>
+            <hr />
+        </div>
+        @endforeach
+        @endif
         {{ $body }}
     </div>
 </div>
