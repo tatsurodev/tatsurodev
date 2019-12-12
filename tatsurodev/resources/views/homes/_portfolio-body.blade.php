@@ -1,0 +1,11 @@
+@if($menu->name === 'skill')
+@include('homes._portfolio-skill-body')
+@elseif($menu->name === 'portfolio')
+@include('homes._portfolio-portfolio-body')
+@elseif($menu->name === 'book')
+@include('homes._portfolio-book-body')
+@elseif($menu->name === 'udemy')
+@include('homes._portfolio-udemy-body')
+@elseif($menu->name === 'contact')
+@include('homes._portfolio-contact-body')
+@endif
