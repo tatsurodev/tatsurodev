@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SkillLevel extends Model
+class Skill extends Model
 {
     /**
      * Relation
      */
-    public function skills()
+    public function skillLevel()
     {
-        return $this->hasMany(Skill::class);
+        return $this->belongsTo(SkillLevel::class);
     }
 }
