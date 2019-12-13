@@ -1,6 +1,6 @@
 <div class="row">
     @foreach($skills as $skill)
-    @skillBar(['skill' => $skill->name, 'color' => $skill->skillLevel->color, 'level' => $skill->skillLevel->level])
+    @skillBar(['skill' => $skill,])
     {!! $skill->message !!}
     @endskillBar
     @endforeach
