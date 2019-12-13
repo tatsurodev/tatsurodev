@@ -1,10 +1,12 @@
 <div class="col-md-6">
     <div class="d-flex align-items-center">
         <h4 class="p-2">{{ $skill->name }}</h4>
-        <span class="p-2 small text-muted">{{ $slot }}</span>
+        <span class="mr-auto p-2 small text-muted">{{ $slot }}</span>
         @auth
-        <a href="{{ route('skills.show', $skill->id) }}">編集</a>
-        <a href="{{ route('skills.destroy', $skill->id) }}" onClick="event.preventDefault(); document.getElementById('skill-id-{{ $skill->id }}').submit();">削除</a>
+        <div>
+            <a class="text-primary" href="{{ route('skills.show', $skill->id) }}"><i class="fas fa-edit fa-lg"></i></a>
+            <a class="text-danger" href="{{ route('skills.destroy', $skill->id) }}" onClick="event.preventDefault(); document.getElementById('skill-id-{{ $skill->id }}').submit();"><i class="fas fa-trash-alt fa-lg"></i></a>
+        </div>
         <form action="{{ route('skills.destroy', $skill->id) }}" method="post" id="skill-id-{{ $skill->id }}">
             @csrf
             @method('delete')
