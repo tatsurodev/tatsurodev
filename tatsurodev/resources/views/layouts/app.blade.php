@@ -25,9 +25,9 @@
                 </div>
                 <div class="col-lg-8 col-md-6">
                     <div class="d-flex flex-column">
-                        <div class="p-5 bg-dark text-white">
+                        <div class="px-3 py-5 bg-dark text-white">
                             <div class="d-flex flex-row justify-content-between align-items-center">
-                                <h1 class="display-2">tatsuro.dev</h1>
+                                <h1 class="display-4">tatsuro.dev</h1>
                                 <div class="d-flex flex-row justify-content-end">
                                     <div class="ml-2">
                                         <a href="http://twitter.com/tatsurodev" class="text-white" target="_blank">
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4">
+                        <div class="text-muted p-4 bg-white">
                             フルスタックエンジニア目指して奮闘中<br />
                             令和の出島Udemyで諸先生方に日々師事しています
                             <!--
