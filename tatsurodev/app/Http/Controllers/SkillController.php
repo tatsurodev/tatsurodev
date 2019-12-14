@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Skills\StoreRequest;
-use App\Http\Requests\Skills\StoreRequest2;
 use App\Skill;
 use App\SkillLevel;
 use Illuminate\Http\Request;
@@ -48,9 +47,11 @@ class SkillController extends Controller
      * @param  \App\Skill  $skill
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Skill $skill)
+    public function update(StoreRequest $request, Skill $skill)
     {
-        //
+        $validatedData = $request->validated();
+        $skill->fill($validatedData)->save();
+        return redirect()->route('home')->withStatus('スキルが更新されました');
     }
 
     /**

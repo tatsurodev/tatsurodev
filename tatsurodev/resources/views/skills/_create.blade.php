@@ -1,8 +1,11 @@
 <div class="row mb-2">
     <div class="col-12">
         <h3 class="text-muted font-weight-bold">{{ isset($skill) ? 'Update' : 'Create New' }} Skill</h3>
-        <form action="{{ route('skills.store') }}" method="post">
+        <form action="{{ isset($skill) ? route('skills.update', $skill->id) : route('skills.store') }}" method="post">
             @csrf
+            @if(isset($skill))
+            @method('put')
+            @endif
             <div class="form-group">
                 <label for="skill-name">スキル</label>
                 <input type="text" name="name" class="form-control{{ $errors->skill->has('name') ? ' is-invalid' : '' }}" id="skill-name" value="{{ isset($skill) ? $skill->name : ($errors->skill->any() ? old('name') : '') }}">
