@@ -7,13 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- app.cssより後に読み込まないと、bootstrapのtoastが動いてしまう -->
+    <link href="{{ asset('css/toastr.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -99,6 +99,20 @@
             </div>
         </footer>
     </div>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- status表示 -->
+    @if(session('status'))
+    <script>
+        toastr.success('{{ session("status") }}')
+    </script>
+    @endif
+    <!-- 入力errors時の簡易的な表示 -->
+    @if(session('errors'))
+    <script>
+        toastr.error('入力エラーがあります')
+    </script>
+    @endif
 </body>
 
 </html>
