@@ -36,7 +36,9 @@ class SkillController extends Controller
      */
     public function edit(Skill $skill)
     {
-        //
+        return view('homes.index', [
+            'skill' => $skill,
+        ]);
     }
 
     /**
