@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Skills\StoreRequest;
+use App\Http\Requests\Skills\StoreRequest2;
 use App\Skill;
+use App\SkillLevel;
 use Illuminate\Http\Request;
 
 class SkillController extends Controller
@@ -17,9 +20,12 @@ class SkillController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $validated['skill_level_id'] = SkillLevel::where('level', $validated['skill_level_id'])->first()->id;
+        $skill = Skill::create($validated);
+        return redirect()->route('home')->withStatus('新たなスキルが作成されました');
     }
 
     /**
