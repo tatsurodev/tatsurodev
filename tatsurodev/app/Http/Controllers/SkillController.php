@@ -18,7 +18,7 @@ class SkillController extends Controller
         $validatedData = $request->validated();
         $validatedData['skill_level_id'] = SkillLevel::where('level', $validatedData['skill_level_id'])->first()->id;
         $skill = Skill::create($validatedData);
-        return redirect()->route('home')->withStatus('新たなスキルが作成されました');
+        return redirect()->route('home')->withStatus(__('status.skill_store'));
     }
 
     public function edit(Skill $skill)
@@ -33,12 +33,12 @@ class SkillController extends Controller
         $validatedData = $request->validated();
         $validatedData['skill_level_id'] = SkillLevel::where('level', $validatedData['skill_level_id'])->first()->id;
         $skill->fill($validatedData)->save();
-        return redirect()->route('home')->withStatus('スキルが更新されました');
+        return redirect()->route('home')->withStatus(__('status.skill_update'));
     }
 
     public function destroy(Skill $skill)
     {
         $skill->delete();
-        return redirect()->route('home')->withStatus('スキルが削除されました');
+        return redirect()->route('home')->withStatus(__('status.skill_destroy'));
     }
 }
