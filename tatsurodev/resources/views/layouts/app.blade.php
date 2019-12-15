@@ -7,13 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Laravel') }}</title>
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- app.cssより後に読み込まないと、bootstrapのtoastが動いてしまう -->
+    <link href="{{ asset('css/toastr.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -25,9 +25,9 @@
                 </div>
                 <div class="col-lg-8 col-md-6">
                     <div class="d-flex flex-column">
-                        <div class="p-5 bg-dark text-white">
+                        <div class="px-3 py-5 bg-dark text-white">
                             <div class="d-flex flex-row justify-content-between align-items-center">
-                                <h1 class="display-2">tatsuro.dev</h1>
+                                <h1 class="display-4">tatsuro.dev</h1>
                                 <div class="d-flex flex-row justify-content-end">
                                     <div class="ml-2">
                                         <a href="http://twitter.com/tatsurodev" class="text-white" target="_blank">
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="p-4">
+                        <div class="text-muted p-4 bg-white">
                             フルスタックエンジニア目指して奮闘中<br />
                             令和の出島Udemyで諸先生方に日々師事しています
                             <!--
@@ -99,6 +99,20 @@
             </div>
         </footer>
     </div>
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- status表示 -->
+    @if(session('status'))
+    <script>
+        toastr.success('{{ session("status") }}')
+    </script>
+    @endif
+    <!-- 入力errors時の簡易的な表示 -->
+    @if(session('errors'))
+    <script>
+        toastr.error('入力エラーがあります')
+    </script>
+    @endif
 </body>
 
 </html>
