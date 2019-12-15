@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Support\Facades\Session;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -20,3 +22,5 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('skills', 'SkillController');
+
+Route::get('locale/{locale}', 'HomeController@locale')->name('homes.locale');
