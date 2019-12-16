@@ -53,6 +53,7 @@
     "admin": "管理画面",
     "login": "ログイン",
     "logout": "ログアウト",
+    "locale": "ローカル",
     "### My Skills Menu ###": "",
     "create skill": "スキルの作成",
     "update skill": "スキルの更新",

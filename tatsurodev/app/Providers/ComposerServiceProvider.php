@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Http\ViewComposers\MenuViewComposer;
 use App\Http\ViewComposers\SkillViewComposer;
 use App\Http\ViewComposers\FormOldHelperViewComposer;
+use App\Http\ViewComposers\LocaleViewComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -39,6 +40,10 @@ class ComposerServiceProvider extends ServiceProvider
             // FormOldHelperViewComposer::class => [
             //     'skills._create',
             // ],
+            LocaleViewComposer::class => [
+                'skills._create',
+            ],
+
         ]);
     }
 }
