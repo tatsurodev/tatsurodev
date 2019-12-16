@@ -91,8 +91,26 @@
         @yield('content')
         <!-- FOOTER -->
         <footer id="main-footer" class="clearfix p-5 bg-dark text-white">
-            <div class="float-left" style="position: relative; left: 50%">
-                <div class="float-left" style="position: relative; left: -50%">
+            <div class="row">
+                @guest
+                <div class="col-md-3 my-2 text-center">
+                    <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm">
+                        <i class="fas fa-user-cog"></i>
+                        <span class="text-capitalize">{{ __('admin') }}</span>
+                    </a>
+                </div>
+                @else
+                <div class="col-md-3 my-2 text-center">
+                    <a href="{{ route('logout') }}" class="btn btn-outline-light btn-sm" onClick="event.preventDefault(); document.getElementById('logout').submit();">
+                        <i class="fas fa-user-cog"></i>
+                        <span class="text-capitalize">{{ __('logout') }}</span>
+                    </a>
+                    <form action="{{ route('logout') }}" method="post" id="logout">
+                        @csrf
+                    </form>
+                </div>
+                @endguest
+                <div class="col-md-6 my-2 text-center">
                     <small>Copyright &copy; {{ config('app.name') }}</small>
                 </div>
                 <div class="col-md-3 my-2 text-center">
