@@ -2,10 +2,13 @@
 
 namespace App;
 
+// use App\Traits\Localized;
 use Illuminate\Database\Eloquent\Model;
 
 class Menu extends Model
 {
+    // use Localized;
+
     /**
      * Relations
      */
