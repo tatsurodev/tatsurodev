@@ -29,6 +29,7 @@ class StoreRequest extends FormRequest
             'name' => 'required|max:255',
             'skill_level_id' => 'required|integer|max:5|min:1',
             'message' => '',
+            'locale_id' => 'required|in:ja,en',
         ];
     }
 }
