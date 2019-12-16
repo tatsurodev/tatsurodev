@@ -8,6 +8,6 @@ class SkillViewComposer
 {
     public function compose($view)
     {
-        $view->with('skills', Skill::all());
+        $view->with('skills', Skill::localizedData()->get());
     }
 }

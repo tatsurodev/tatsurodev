@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Skills\StoreRequest;
 use App\Skill;
 use App\SkillLevel;
+use App\Locale;
 
 class SkillController extends Controller
 {
@@ -17,6 +18,7 @@ class SkillController extends Controller
     {
         $validatedData = $request->validated();
         $validatedData['skill_level_id'] = SkillLevel::where('level', $validatedData['skill_level_id'])->first()->id;
+        $validatedData['locale_id'] = Locale::where('name', $validatedData['locale_id'])->first()->id;
         $skill = Skill::create($validatedData);
         return redirect()->route('homes.index')->withStatus(__('status.skill_store'));
     }
@@ -32,6 +34,7 @@ class SkillController extends Controller
     {
         $validatedData = $request->validated();
         $validatedData['skill_level_id'] = SkillLevel::where('level', $validatedData['skill_level_id'])->first()->id;
+        $validatedData['locale_id'] = Locale::where('name', $validatedData['locale_id'])->first()->id;
         $skill->fill($validatedData)->save();
         return redirect()->route('homes.index')->withStatus(__('status.skill_update'));
     }
