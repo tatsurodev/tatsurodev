@@ -27,7 +27,7 @@
                     <div class="d-flex flex-column">
                         <div class="px-3 py-5 bg-dark text-white">
                             <div class="d-flex flex-row justify-content-between align-items-center">
-                                <h1 class="display-4">tatsuro.dev</h1>
+                                <h1 class="display-4">{{ config('app.name', 'Laravel') }}</h1>
                                 <div class="d-flex flex-row justify-content-end">
                                     <div class="ml-2">
                                         <a href="http://twitter.com/tatsurodev" class="text-white" target="_blank">
@@ -60,8 +60,7 @@
                             </div>
                         </div>
                         <div class="text-muted p-4 bg-white">
-                            フルスタックエンジニア目指して奮闘中<br />
-                            令和の出島Udemyで諸先生方に日々師事しています
+                            @lang('messages.welcome')
                             <!--
                             <div class="btn-group dropup">
                                 <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">
@@ -91,10 +90,20 @@
         </header>
         @yield('content')
         <!-- FOOTER -->
-        <footer id="main-footer" class="p-5 bg-dark text-white text-center">
-            <div class="row">
-                <div class="col-md-12">
-                    <small>Copyright &copy; tatsuro.dev</small>
+        <footer id="main-footer" class="clearfix p-5 bg-dark text-white">
+            <div class="float-left" style="position: relative; left: 50%">
+                <div class="float-left" style="position: relative; left: -50%">
+                    <small>Copyright &copy; {{ config('app.name') }}</small>
+                </div>
+                <div class="col-md-3 my-2 text-center">
+                    <form name="locale">
+                        <select name="language" class="form-control form-control-sm" onChange="changeLocale()">
+                            <option>{{ __('Select Lang') }}</option>
+                            <option value="{{ route('homes.locale', 'en') }}">English
+                            </option>
+                            <option value="{{ route('homes.locale', 'ja') }}">日本語</option>
+                        </select>
+                    </form>
                 </div>
             </div>
         </footer>

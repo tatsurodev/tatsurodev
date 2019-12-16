@@ -23,4 +23,11 @@ class HomeController extends Controller
     {
         return view('homes.index');
     }
+
+    public function locale($locale)
+    {
+        $language = $locale === 'ja' ? __('Japanese') : __('English');
+        session()->put('locale', $locale);
+        return redirect()->back()->withStatus(__('messages.change_locale', ['language' => $language]));
+    }
 }
