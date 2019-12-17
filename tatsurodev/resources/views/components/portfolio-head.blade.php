@@ -10,7 +10,15 @@
         @if(isset($qAndAs))
         @foreach($qAndAs as $qAndA)
         <div class="mb-2 text-muted">
-            <h3 class="font-weight-bold">{{ $qAndA->question }}</h3>
+            <div class="d-flex justify-content-between">
+                <h3 class="font-weight-bold">{{ $qAndA->question }}</h3>
+                @auth
+                <div>
+                    @controllerButton(['route' => 'qandas', 'instance' => $qAndA,])
+                    @endcontrollerButton
+                </div>
+                @endauth
+            </div>
             <p class="ml-2">
                 {{ $qAndA->answer }}
             </p>
