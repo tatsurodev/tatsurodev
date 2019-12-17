@@ -42,6 +42,7 @@ class ComposerServiceProvider extends ServiceProvider
             // ],
             LocaleViewComposer::class => [
                 'skills._create',
+                'qandas._create',
             ],
 
         ]);

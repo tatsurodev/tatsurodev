@@ -22,5 +22,6 @@ Auth::routes(['register' => false, 'reset' => false, 'verify' => false]);
 Route::get('/', 'HomeController@index')->name('homes.index');
 
 Route::resource('skills', 'SkillController');
+Route::resource('qandas', 'QAndAController');
 
 Route::get('locale/{locale}', 'HomeController@locale')->name('homes.locale');
