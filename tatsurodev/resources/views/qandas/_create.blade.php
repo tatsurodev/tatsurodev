@@ -24,6 +24,17 @@
                 </span>
                 @endif
             </div>
+            <div class="form-group">
+                <label for="qanda-locale" class="text-capitalize">{{ __('locale') }}</label>
+                <select name="locale_id" id="qanda-locale" class="form-control{{ $errors->qanda->has('locale_id') ? ' is-invalid' : '' }}" readonly>
+                    <option value="{{ $currentLocale->name }}" selected>{{ $currentLocale->language }}</option>
+                </select>
+                @if($errors->qanda->has('locale_id'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->qanda->first('locale_id') }}</strong>
+                </span>
+                @endif
+            </div>
             <input type="hidden" name="menu_id" value="{{ $menu->id }}">
             <input type="hidden" name="form-identity" value="qanda">
             <button type="submit" class="btn btn-success btn-block text-capitalize">{{ isset($qAndA) ? __('update') : __('create') }}</button>
