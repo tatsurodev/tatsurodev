@@ -8,6 +8,7 @@ class LocaleViewComposer
 {
     public function compose($view)
     {
-        $view->with('locales', Locale::all());
+        $currentLocale = Locale::where('name', session()->get('locale'))->first();
+        $view->with('locales', Locale::all())->with('currentLocale', $currentLocale);
     }
 }

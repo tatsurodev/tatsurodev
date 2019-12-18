@@ -2,9 +2,9 @@
 
 namespace App\Http\Middleware;
 
+use App\Locale;
 use Closure;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
 
 class LocaleMiddleware
 {
@@ -17,9 +17,15 @@ class LocaleMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Session::has('locale')) {
-            App::setlocale(Session::get('locale'));
+        // locale sessionがあれば取得
+        if (session()->has('locale')) {
+            $locale = session()->get('locale');
+        } else {
+            // locale sessonがなければdefaultのlocale取得
+            $locale = Locale::where('is_default', true)->first()->name;
+            session()->put('locale', $locale);
         }
+        App::setlocale($locale);
         return $next($request);
     }
 }
