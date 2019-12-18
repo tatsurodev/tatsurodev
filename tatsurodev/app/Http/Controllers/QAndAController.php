@@ -2,84 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\QAndAs\StoreRequest;
 use App\QAndA;
 use Illuminate\Http\Request;
 
 class QAndAController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware(['auth']);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store(StoreRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        $qanda = QAndA::create($validatedData);
+        return redirect()->route('homes.index')->withStatus(__('status.qanda_store'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function edit(QAndA $qanda)
     {
-        //
+        return view('homes.index', [
+            'qAndA' => $qanda,
+        ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\QAndA  $qAndA
-     * @return \Illuminate\Http\Response
-     */
-    public function show(QAndA $qAndA)
+    public function update(StoreRequest $request, QAndA $qanda)
     {
-        //
+        $validatedData = $request->validated();
+        $qanda->fill($validatedData)->save();
+        return redirect()->route('homes.index')->withStatus(__('status.qanda_update'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\QAndA  $qAndA
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(QAndA $qAndA)
+    public function destroy(QAndA $qanda)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\QAndA  $qAndA
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, QAndA $qAndA)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\QAndA  $qAndA
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(QAndA $qAndA)
-    {
-        //
+        $qanda->delete();
+        return redirect()->route('homes.index')->withStatus(__('status.qanda_destroy'));
     }
 }

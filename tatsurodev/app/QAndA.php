@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class QAndA extends Model
 {
+    protected $guarded = ['id',];
     /**
      * Relations
      */

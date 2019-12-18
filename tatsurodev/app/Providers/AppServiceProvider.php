@@ -26,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     {
         Blade::component('components.skill-bar', 'skillBar');
         Blade::component('components.portfolio-head', 'portfolioHead');
+        Blade::component('components.controller-button', 'controllerButton');
     }
 }

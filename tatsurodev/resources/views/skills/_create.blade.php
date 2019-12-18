@@ -35,10 +35,8 @@
             </div>
             <div class="form-group">
                 <label for="skill-locale" class="text-capitalize">{{ __('locale') }}</label>
-                <select name="locale_id" id="skill-locale" class="form-control{{ $errors->skill->has('locale_id') ? ' is-invalid' : '' }}">
-                    @foreach($locales as $locale)
-                    <option value="{{ $locale->name }}" {{ old('locale_id') !== null && $locale->id === old('locale_id') ? 'selected' : (isset($skill) && old('locale_id') === null && $locale->id === $skill->locale_id ? 'selected' : (!isset($skill) && old('locale_id') === null && $locale->is_default ? 'selected' : '')) }}>{{ $locale->language }}</option>
-                    @endforeach
+                <select name="locale_id" id="skill-locale" class="form-control{{ $errors->skill->has('locale_id') ? ' is-invalid' : '' }}" readonly>
+                    <option value="{{ $currentLocale->name }}" selected>{{ $currentLocale->language }}</option>
                 </select>
                 @if($errors->skill->has('locale_id'))
                 <span class="invalid-feedback">

@@ -49,29 +49,11 @@
                                             <i class="fab fa-github"></i>
                                         </a>
                                     </div>
-                                    <!--
-                                    <div class="ml-2">
-                                        <a href="" class="text-white">
-                                            <i class="fas fa-language"></i>
-                                        </a>
-                                    </div>
-                                    -->
                                 </div>
                             </div>
                         </div>
                         <div class="text-muted p-4 bg-white">
                             @lang('messages.welcome')
-                            <!--
-                            <div class="btn-group dropup">
-                                <button class="btn btn-dark dropdown-toggle" type="button" data-toggle="dropdown">
-                                    <i class="fas fa-language"></i>
-                                </button>
-                                <div class="dropdown-menu" x-placement="bottom-start">
-                                    <a class="dropdown-item" href="#">English</a>
-                                    <a class="dropdown-item" href="#">日本語</a>
-                                </div>
-                            </div>
-                            -->
                         </div>
                         <div>
                             <div class="d-flex flex-row text-white align-items-stretch text-center">
@@ -92,35 +74,41 @@
         <!-- FOOTER -->
         <footer id="main-footer" class="clearfix p-5 bg-dark text-white">
             <div class="row">
-                @guest
-                <div class="col-md-3 my-2 text-center">
-                    <a href="{{ route('login') }}" class="btn btn-outline-light btn-sm">
+                <div class="col-md-3 my-2">
+                    @guest
+                    <a href="{{ route('login') }}" class="btn btn-outline-light">
                         <i class="fas fa-user-cog"></i>
                         <span class="text-capitalize">{{ __('admin') }}</span>
                     </a>
-                </div>
-                @else
-                <div class="col-md-3 my-2 text-center">
-                    <a href="{{ route('logout') }}" class="btn btn-outline-light btn-sm" onClick="event.preventDefault(); document.getElementById('logout').submit();">
+                    @else
+                    <a href="{{ route('logout') }}" class="btn btn-outline-light" onClick="event.preventDefault(); document.getElementById('logout').submit();">
                         <i class="fas fa-user-cog"></i>
                         <span class="text-capitalize">{{ __('logout') }}</span>
                     </a>
                     <form action="{{ route('logout') }}" method="post" id="logout">
                         @csrf
                     </form>
+                    @endguest
                 </div>
-                @endguest
                 <div class="col-md-6 my-2 text-center">
                     <small>Copyright &copy; {{ config('app.name') }}</small>
                 </div>
-                <div class="col-md-3 my-2 text-center">
+                <div class="col-md-3 my-2">
                     <form name="locale">
-                        <select name="language" class="form-control form-control-sm" onChange="changeLocale()">
-                            <option>{{ __('Select Lang') }}</option>
-                            <option value="{{ route('homes.locale', 'en') }}">English
-                            </option>
-                            <option value="{{ route('homes.locale', 'ja') }}">日本語</option>
-                        </select>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-dark text-white">
+                                        <i class="fas fa-language fa-lg"></i>
+                                    </span>
+                                </div>
+                                <select name="language" class="form-control bg-dark text-white" onChange="changeLocale()">
+                                    @foreach($locales as $locale)
+                                    <option value="{{ route('homes.locale', $locale->name) }}" {{ $currentLocale->id === $locale->id ? 'selected' : ''}} />{{ $locale->language }}
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
